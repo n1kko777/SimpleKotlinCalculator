@@ -18,15 +18,15 @@ class MainActivity : Activity() {
     private var div: Boolean? = null
 
     private var decimalFormat: DecimalFormat? = null
-    private var model: ViewModel? = null
     private var binding: ActivityMainBinding? = null
+
+    val model : ViewModel = ViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        model = ViewModel()
-        //binding.model = model
+        binding!!.setModel(model)
         decimalFormat = DecimalFormat("#.##########")
 
         inic_value()
